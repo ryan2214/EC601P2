@@ -18,24 +18,31 @@ api = TwitterAPI(consumer_key,
                  consumer_secret,
                  auth_type='oAuth2')
 
+sentiResult = 0
+sentiNum = 0
+textTemp = u' '
+#Search x tweets about Trump
 
-
-#Search 10 tweets about Trump
-
-r = api.request('search/tweets', {'q': SEARCH_TERM,'count':10})
+r = api.request('search/tweets', {'q': SEARCH_TERM,'count':100, 'tweet_mode':"extended"})
 
 for item in r:
+    if item['lang'] == 'en' :
 # The text to analyze
-    text = item['text'].encode('utf-8')
-    document = types.Document(content=text, type=enums.Document.Type.PLAIN_TEXT)
+        if 'extended_tweet' in item: 
+            text = item['extended_tweet']['full_text']
+        if 'retweeted_status' in item: 
+            text = item['retweeted_status']['full_text']
+        elif 'full_text' in item:
+            text = item['full_text']
+        elif 'text' in item:
+            text = item['text']
 
-# Detects the sentiment of the text
-    sentiment = client.analyze_sentiment(document=document).document_sentiment
-    print("Text: {}".format(text))
-    print("Sentiment: {}, {}".format(sentiment.score, sentiment.magnitude))
+        sentiNum += 1
+        textTemp = textTemp + text
 
-print('\nQUOTA: %s' % r.get_quota())
+document = types.Document(content=textTemp, type=enums.Document.Type.PLAIN_TEXT)
+sentiment = client.analyze_sentiment(document=document).document_sentiment
 
+sentiResult = sentiment.score
 
-
-
+print("SentimentResult: {}".format(sentiResult))
