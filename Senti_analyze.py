@@ -11,8 +11,8 @@ client = language.LanguageServiceClient()
 
 SEARCH_TERM = '#Trump'
 
-consumer_key = "6QUN21kJc7tzodHplisBwc6Bs"
-consumer_secret = "1NzrSdN0o8j30lIBGy0IuIiTkgL5qvu7fRjoxcAarkCTgigqJ5"
+consumer_key = ""
+consumer_secret = ""
 
 api = TwitterAPI(consumer_key,
                  consumer_secret,
