@@ -11,8 +11,8 @@ client = language.LanguageServiceClient()
 
 SEARCH_TERM = '#Trump'
 
-consumer_key = secrets.GOOGLE_CONSUMER_KEY
-consumer_secret = secrets.GOOGLE_CONSUMER_SECRET
+consumer_key = ${{secrets.GOOGLE_CONSUMER_KEY}}
+consumer_secret = ${{secrets.GOOGLE_CONSUMER_SECRET}}
 
 api = TwitterAPI(consumer_key,
                  consumer_secret,
