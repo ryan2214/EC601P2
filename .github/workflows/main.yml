@@ -30,4 +30,5 @@ jobs:
       - name: Run a multi-line script
         run: |
           pip install TwitterAPI
+          pip install --upgrade google-cloud-language
           python Senti_analyze.py
