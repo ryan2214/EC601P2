@@ -37,7 +37,7 @@ for item in r:
         SENTI_NUM += 1
         TEXT_TEMP = TEXT_TEMP + text
 
-document = types.Document(content=textTemp, type=enums.Document.Type.PLAIN_TEXT)
+document = types.Document(content=TEXT_TEMP, type=enums.Document.Type.PLAIN_TEXT)
 sentiment = client.analyze_sentiment(document=document).document_sentiment
 
 SENTI_RESULT = sentiment.score
