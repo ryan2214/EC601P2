@@ -39,4 +39,3 @@ document = language_v1.Document(content=TEXT_TEMP, type_=language_v1.Document.Ty
 SENTI_RESULT = client.analyze_sentiment(request={'document': document}).document_sentiment.score
 
 print("SentimentResult: {}".format(SENTI_RESULT))
-#print('\nQUOTA: %s' % r.get_quota())
