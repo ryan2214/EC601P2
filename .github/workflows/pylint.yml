@@ -16,7 +16,7 @@ jobs:
     - name: Install dependencies
       env:
           PROJECT_ID: ${{secrets.GCLOUD_PROJECT_ID}}
-          GOOGLE_APPLICATION_CREDENTIALS: ${{secrets.GOOGLE_APPLICATION_CREDENTIALS}}
+          APPLICATION_CREDENTIALS: ${{secrets.GOOGLE_APPLICATION_CREDENTIALS}}
           consumer_key: ${{secrets.GOOGLE_CONSUMER_KEY}}
           consumer_secret: ${{secrets.GOOGLE_CONSUMER_SECRET}}
       run: |
