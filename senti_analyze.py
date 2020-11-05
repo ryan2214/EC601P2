@@ -2,12 +2,10 @@
 from TwitterAPI import TwitterAPI
 
 # Imports the Google Cloud client library
-from google.cloud import language
-from google.cloud.language import enums
-from google.cloud.language import types
+from google.cloud import language_v1
 
 # Instantiates a NLP client
-client = language.LanguageServiceClient()
+client = language_v1.LanguageServiceClient()
 
 SEARCH_TERM = '#Trump'
 
@@ -37,9 +35,10 @@ for item in r:
         SENTI_NUM += 1
         TEXT_TEMP = TEXT_TEMP + text
 
-document = types.Document(content=TEXT_TEMP, type=enums.Document.Type.PLAIN_TEXT)
-sentiment = client.analyze_sentiment(document=document).document_sentiment
+document = language_v1.Document(content=TEXT_TEMP, type_=language_v1.Document.Type.PLAIN_TEXT)
+SENTI_RESULT = client.analyze_sentiment(request={'document': document}).document_sentiment.score
 
-SENTI_RESULT = sentiment.score
-
+#print(TEXT_TEMP)
+#print("SentimentNum: {}".format(SENTI_NUM))
 print("SentimentResult: {}".format(SENTI_RESULT))
+#print('\nQUOTA: %s' % r.get_quota())
