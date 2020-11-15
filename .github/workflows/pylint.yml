@@ -13,10 +13,12 @@ jobs:
       uses: actions/setup-python@v1
       with:
         python-version: 3.8
+    - name: Create Google Credentials
+      run: echo "${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}" > cred.json
     - name: Install dependencies
       env:
           PROJECT_ID: ${{secrets.GCLOUD_PROJECT_ID}}
-          APPLICATION_CREDENTIALS: ${{secrets.GOOGLE_APPLICATION_CREDENTIALS}}
+          GOOGLE_APPLICATION_CREDENTIALS: cred.json
           consumer_key: ${{secrets.GOOGLE_CONSUMER_KEY}}
           consumer_secret: ${{secrets.GOOGLE_CONSUMER_SECRET}}
       run: |
