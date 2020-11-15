@@ -1,4 +1,5 @@
 # -*- coding:utf-8 -*-
+import os
 from TwitterAPI import TwitterAPI
 
 # Imports the Google Cloud client library
@@ -9,8 +10,8 @@ client = language_v1.LanguageServiceClient()
 
 SEARCH_TERM = '#Trump'
 
-api = TwitterAPI(consumer_key,
-                 consumer_secret,
+api = TwitterAPI(os.environ.get(consumer_key),
+                 os.environ.get(consumer_secret),
                  auth_type='oAuth2')
 
 SENTI_RESULT = 0
