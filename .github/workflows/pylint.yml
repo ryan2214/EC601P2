@@ -14,7 +14,7 @@ jobs:
       with:
         python-version: 3.8
     - name: Create Google Credentials
-      run: echo "${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}" > cred.json
+      run: echo "${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}" | base64 --decode >> cred.json
     - name: Install dependencies
       env:
           PROJECT_ID: ${{secrets.GCLOUD_PROJECT_ID}}
