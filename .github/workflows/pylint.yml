@@ -22,7 +22,7 @@ jobs:
         pip install pylint
         pip install google-cloud-language
         pip install TwitterAPI
-    - name: Analysing the code with pylint
+    - name: run the code
       env:
           PROJECT_ID: ${{secrets.GCLOUD_PROJECT_ID}}
           GOOGLE_APPLICATION_CREDENTIALS: cred.json
