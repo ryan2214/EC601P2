@@ -1,4 +1,4 @@
-from TwitterAppPrototype import *
+from senti_analyze import *
 
 # test about TwitterAPI
 twitter = TwitterAPI()
