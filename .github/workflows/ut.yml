@@ -30,4 +30,3 @@ jobs:
           consumer_secret: ${{secrets.GOOGLE_CONSUMER_SECRET}}
       run: |
         python senti_analyze.py
-        pytest
