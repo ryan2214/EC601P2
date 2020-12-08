@@ -10,8 +10,8 @@ client = language_v1.LanguageServiceClient()
 
 SEARCH_TERM = '#Trump'
 
-api = TwitterAPI(os.environ.get(consumer_key),
-                 os.environ.get(consumer_secret),
+api = TwitterAPI(os.environ.get("consumer_key"),
+                 os.environ.get("consumer_secret"),
                  auth_type='oAuth2')
 
 SENTI_RESULT = 0
