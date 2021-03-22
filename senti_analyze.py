@@ -14,7 +14,6 @@ api = TwitterAPI(os.environ.get("consumer_key"),
                  os.environ.get("consumer_secret"),
                  auth_type='oAuth2')
 
-SENTI_RESULT = 0
 SENTI_NUM = 0
 TEXT_TEMP = u' '
 #Search x tweets about Trump
